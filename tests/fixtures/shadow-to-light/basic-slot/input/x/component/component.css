@@ -1,0 +1,7 @@
+slot {
+    overflow-y: auto;
+}
+
+.foo > slot {
+    border: 1px solid black;
+}

@@ -1,0 +1,12 @@
+{
+  "modified": [
+    "x/component/component.ts",
+    "x/component/component.html"
+  ],
+  "deleted": [],
+  "errors": [],
+  "total": {
+    "numModified": 2,
+    "numErrors": 0
+  }
+}

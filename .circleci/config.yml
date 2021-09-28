@@ -1,0 +1,20 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/lwc-codemod
+    docker:
+      - image: circleci/node:16-browsers
+    steps:
+      - checkout
+      - restore_cache: # see https://circleci.com/docs/2.0/yarn/
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - save_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run:
+          command: yarn lint
+      - run:
+          command: yarn test

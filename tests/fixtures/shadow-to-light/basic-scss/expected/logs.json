@@ -1,0 +1,15 @@
+{
+  "modified": [
+    "x/component/component.js",
+    "x/component/component.html",
+    "x/component/component.scoped.scss"
+  ],
+  "deleted": [
+    "x/component/component.scss"
+  ],
+  "errors": [],
+  "total": {
+    "numModified": 4,
+    "numErrors": 0
+  }
+}

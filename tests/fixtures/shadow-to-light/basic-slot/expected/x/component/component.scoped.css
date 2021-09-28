@@ -1,0 +1,7 @@
+.lwc-slot-wrapper  {
+    overflow-y: auto;
+}
+
+.foo > .lwc-slot-wrapper  {
+    border: 1px solid black;
+}

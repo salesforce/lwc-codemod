@@ -1,0 +1,59 @@
+{
+  "name": "lwc-codemod",
+  "version": "1.0.0",
+  "description": "LWC codemod scripts",
+  "license": "BSD-3-Clause",
+  "type": "module",
+  "author": "Nolan Lawson <nlawson@salesforce.com>",
+  "bin": {
+    "lwc-codemod": "transforms/cli.js"
+  },
+  "dependencies": {
+    "jscodeshift": "^0.13.1",
+    "parse5": "^6.0.1",
+    "postcss": "^8.4.5",
+    "postcss-selector-parser": "^6.0.9"
+  },
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest ./tests/*.spec.js",
+    "test:debug": "NODE_OPTIONS='--experimental-vm-modules --inspect-brk' jest --runInBand ./tests/*.spec.js",
+    "lint": "standard"
+  },
+  "devDependencies": {
+    "glob": "^7.2.0",
+    "jest": "^27.4.7",
+    "standard": "^16.0.4"
+  },
+  "volta": {
+    "node": "16.10.0",
+    "yarn": "1.22.15"
+  },
+  "standard": {
+    "globals": [
+      "beforeAll",
+      "beforeEach",
+      "test",
+      "afterEach",
+      "afterAll",
+      "describe",
+      "expect"
+    ],
+    "ignore": [
+      "**/fixtures/"
+    ]
+  },
+  "files": [
+    "transforms"
+  ],
+  "engines": {
+    "node": ">=14.13.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salesforce/lwc-codemod.git"
+  },
+  "bugs": {
+    "url": "https://github.com/salesforce/lwc-codemod/issues"
+  },
+  "homepage": "https://github.com/salesforce/lwc-codemod#readme"
+}

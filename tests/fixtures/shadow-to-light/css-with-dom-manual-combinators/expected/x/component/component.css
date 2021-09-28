@@ -1,0 +1,15 @@
+:host > .foo {
+    background: red;
+}
+
+.lwc-dom-manual-8a8lf9 .foo > .bar {
+    color: blue;
+}
+
+:host-context(.foo) {
+    font-size: 1.3rem;
+}
+
+:host-context(.foo) > .bar {
+    font-size: 1.3rem;
+}
