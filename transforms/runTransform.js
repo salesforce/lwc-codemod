@@ -10,13 +10,21 @@ import fs from 'fs/promises'
 import { walkComponents } from './walkComponents.js'
 import { shadowToLight } from './shadowToLight/index.js'
 import { syntheticToNative } from './syntheticToNative/index.js'
+import {
+  endTagWithoutMatchingOpenElement,
+  closingOfElementWithOpenChildElements,
+  eofInElementThatCanContainOnlyText,
+} from './htmlParsing/index.js'
 
 const include = ['.js', '.ts']
 const exclude = ['__tests__', '.stories.ts']
 
 const transforms = {
   'shadow-to-light': shadowToLight,
-  'synthetic-to-native': syntheticToNative
+  'synthetic-to-native': syntheticToNative,
+  'end-tag-without-matching-open-element': endTagWithoutMatchingOpenElement,
+  'closing-of-element-with-open-child-elements': closingOfElementWithOpenChildElements,
+  'eof-in-element-that-can-contain-only-text': eofInElementThatCanContainOnlyText,
 }
 
 export async function runTransform (dir, transformPath) {
