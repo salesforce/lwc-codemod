@@ -12,7 +12,7 @@ import { shadowToLight } from './shadowToLight/index.js'
 import { syntheticToNative } from './syntheticToNative/index.js'
 import {
   multipleTemplateIfTrueIfFalse,
-  invalidTemplateAttributes,
+  invalidTemplateAttributes
 } from './templateDirectives/index.js'
 
 const include = ['.js', '.ts']
@@ -22,7 +22,7 @@ const transforms = {
   'shadow-to-light': shadowToLight,
   'synthetic-to-native': syntheticToNative,
   'multiple-template-if-true-if-false': multipleTemplateIfTrueIfFalse,
-  'invalid-template-attributes': invalidTemplateAttributes,
+  'invalid-template-attributes': invalidTemplateAttributes
 }
 
 export async function runTransform (dir, transformPath) {
