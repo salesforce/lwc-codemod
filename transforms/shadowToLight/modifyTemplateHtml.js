@@ -11,7 +11,7 @@ import {
   setAttr,
   delAttr,
   addClass,
-  replaceNode,
+  replaceNode
 } from '../parse5Utils'
 
 export function modifyTemplateHtml (htmlFile, source, ast, associatedCssFileContent, domManualClass, result) {
