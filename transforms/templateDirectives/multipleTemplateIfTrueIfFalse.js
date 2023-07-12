@@ -2,25 +2,34 @@ import { walkParse5Ast, serializeParse5Ast } from '../parse5Utils'
 
 const isIfTrueIfFalseAttr = (attr) => attr.name === 'if:true' || attr.name === 'if:false'
 
-const removeInvalidIfTrueIfFalseAttributes = (node) => {
+const removeInvalidIfTrueIfFalseAttributes = (node, ctx) => {
     if (node.attrs?.some(isIfTrueIfFalseAttr)) {
         // In LWC templates only the first if:true/if:false is processed
-        const validConditionalAttr = node.attrs.find(isIfTrueIfFalseAttr)
-        const nonConditionalAttrs = node.attrs.filter(attr => !isIfTrueIfFalseAttr(attr))
-        node.attrs = [ ...nonConditionalAttrs, validConditionalAttr ]
+        // Keep the first occurrence of if:true/if:false and discard the rest
+        const idx = node.attrs.findIndex(isIfTrueIfFalseAttr)
+        node.attrs = node.attrs.reduce((acc, curr, index) => {
+            if (!isIfTrueIfFalseAttr(curr) || index === idx) {
+                acc.push(curr)
+            }
+            return acc
+        }, [])
+        
+        ctx.modified = true
     }
 }
 
 export const multipleTemplateIfTrueIfFalse = async ({ templates }) => {
     const result = {
         overwrite: {},
-        delete: []
+        delete: [],
     }
 
     templates.forEach(({ ast, file }) => {
-        walkParse5Ast(ast, removeInvalidIfTrueIfFalseAttributes)
-        // todo add a check to see if file was actually modified first
-        result.overwrite[file] = serializeParse5Ast(ast)
+        const ctx = { modified: false }
+        walkParse5Ast(ast, removeInvalidIfTrueIfFalseAttributes, ctx)
+        if (ctx.modified) {
+            result.overwrite[file] = serializeParse5Ast(ast)
+        }
     })
 
     return result

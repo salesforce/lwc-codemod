@@ -1,0 +1,37 @@
+<template lwc:render-mode="light">
+    <!-- iterator -->
+    <template iterator:it={contacts} class="slds-fake">
+        <li key={it.value.Id}>
+            <div lwc:if={it.first} class="list-first"></div>
+            {it.value.Name}, {it.value.Title}
+            <div lwc:if={it.last} class="list-last"></div>
+        </li>
+    </template>
+    
+    <!-- for:each -->
+    <template for:each={contacts} for:item="contact" data-something-fake>
+        <li key={contact.Id}>
+            {contact.Name}, {contact.Title}
+        </li>
+    </template>
+
+    <!-- lwc:if, lwc:else-if, lwc:else -->
+    <template lwc:if={property1} onclick={handleClick}>
+        Statement1
+    </template>
+    <template lwc:elseif={property2} lwc:render-mode="light">
+        Statement2
+    </template>
+    <template lwc:else data-hybrid-theory>
+        Statement3
+    </template>
+
+    <!-- if:true / if:false  -->
+    <template if:true={visible}>
+        Show me the money!
+    </template>
+
+    <template if:false={visible}>
+        ohio
+    </template>
+</template>

@@ -1,7 +1,6 @@
 import { walkParse5Ast, serializeParse5Ast } from '../parse5Utils'
 
 const rootTemplateDirectives = new Set(['lwc:preserve-comments', 'lwc:render-mode'])
-// TODO: need to add iterators to this
 const nonRootTemplateDirectives = new Set([
     'for:each',
     'for:index',
@@ -12,15 +11,19 @@ const nonRootTemplateDirectives = new Set([
     'lwc:else',
 ])
 
-const isRootNode = ({ parentNode }) =>
-    parentNode?.nodeName === '#document-fragment' && parentNode?.parentNode === undefined
+const isValidRootTemplateDirective = (attrName) => rootTemplateDirectives.has(attrName)
 
-const removeInvalidAttributes = (node) => {
+const isValidNonRootTemplateDirective = (attrName) =>
+    nonRootTemplateDirectives.has(attrName) || attrName.startsWith('iterator:')
+
+const removeInvalidAttributes = (node, ctx) => {
     if (node.tagName === 'template') {
-        const validTemplateDirectives = isRootNode(node)
-            ? rootTemplateDirectives
-            : nonRootTemplateDirectives
-        node.attrs = node.attrs.filter((attr) => validTemplateDirectives.has(attr.name))
+        const isValidTemplateDirective = ctx.isRoot
+            ? isValidRootTemplateDirective
+            : isValidNonRootTemplateDirective
+        node.attrs = node.attrs.filter((attr) => isValidTemplateDirective(attr.name))
+        ctx.isRoot = false
+        ctx.modified = true
     }
 }
 
@@ -31,9 +34,11 @@ export const invalidTemplateAttributes = async ({ templates }) => {
     }
 
     templates.forEach(({ ast, file }) => {
-        walkParse5Ast(ast, removeInvalidAttributes)
-        // todo add a check to see if file was actually modified first
-        result.overwrite[file] = serializeParse5Ast(ast)
+        const ctx = { isRoot: true, modified: false }
+        walkParse5Ast(ast, removeInvalidAttributes, ctx)
+        if (ctx.modified) {
+            result.overwrite[file] = serializeParse5Ast(ast)
+        }
     })
 
     return result
