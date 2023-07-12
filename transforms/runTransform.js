@@ -13,7 +13,7 @@ import { syntheticToNative } from './syntheticToNative/index.js'
 import {
   endTagWithoutMatchingOpenElement,
   closingOfElementWithOpenChildElements,
-  eofInElementThatCanContainOnlyText,
+  eofInElementThatCanContainOnlyText
 } from './htmlParsing/index.js'
 
 const include = ['.js', '.ts']
@@ -24,7 +24,7 @@ const transforms = {
   'synthetic-to-native': syntheticToNative,
   'end-tag-without-matching-open-element': endTagWithoutMatchingOpenElement,
   'closing-of-element-with-open-child-elements': closingOfElementWithOpenChildElements,
-  'eof-in-element-that-can-contain-only-text': eofInElementThatCanContainOnlyText,
+  'eof-in-element-that-can-contain-only-text': eofInElementThatCanContainOnlyText
 }
 
 export async function runTransform (dir, transformPath) {
