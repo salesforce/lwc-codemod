@@ -30,6 +30,7 @@ Available transforms:
 
 - [Shadow DOM to Light DOM](#shadow-dom-to-light-dom) (`shadow-to-light`)
 - [Synthetic Shadow DOM to Native Shadow DOM](#synthetic-shadow-dom-to-native-shadow-dom) (`synthetic-to-native`)
+- [Template Directives](#template-directives)
 
 ### Shadow DOM to Light DOM
 
@@ -80,6 +81,46 @@ lwc-codemod synthetic-to-native <path>
 Converts components from synthetic shadow to native shadow.
 
 The only transformation it currently applies is to add the `static shadowSupportMode` property. Any other discrepancies between native shadow and synthetic shadow will have to be handled manually.
+
+### Template Directives
+
+#### Usage
+
+```sh
+lwc-codemod <template-directive-codemod> <path>
+```
+
+#### Summary
+
+Fixes the following issues pertaining to directives on root and non-root `template` elements.
+
+#####`multiple-if-true-if-false` 
+
+Removes excessive `if:true` and `if:false` attributes that appear on the same element. 
+
+Only the first `if:true`/`if:false` is processed in LWC, this mod will remove all other instances.
+
+For example:
+
+```html
+<template>
+    <div if:true={visible} if:false={visible} class="slds-styles"></div>
+</template>
+```
+
+Will become
+
+```html
+<template>
+    <div if:true={visible} class="slds-styles"></div>
+</template>
+```
+
+#####`invalid-template-attributes`
+
+This mod will remove all invalid attributes on root and non-root `template` elements. 
+
+See the official [documentation](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_directives) for valid `template` attributes.
 
 ## Contributing
 
