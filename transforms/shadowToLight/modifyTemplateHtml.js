@@ -4,56 +4,15 @@
  * SPDX-License-Identifier: BSD-3-Clause
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import * as parse5Module from 'parse5'
-
-const parse5 = parse5Module.default ?? parse5Module
-
-function getAttr (node, name) {
-  const attr = node.attrs ? node.attrs.find((attr) => attr.name === name) : null
-  return attr && attr.value
-}
-
-function setAttr (node, name, value) {
-  const attr = node.attrs.find(attr => attr.name === name)
-  if (attr) {
-    attr.value = value
-  } else {
-    node.attrs.push({ name, value })
-  }
-}
-
-function delAttr (node, name) {
-  const idx = node.attrs.findIndex(attr => attr.name === name)
-  if (typeof idx === 'number' && idx !== -1) {
-    node.attrs.splice(idx, 1)
-  }
-}
-
-function addClass (node, className) {
-  const attr = getAttr(node, 'class') || ''
-  setAttr(node, 'class', (attr.trim() + ' ' + className).trim())
-}
-
-function replaceNode (node, replacement) {
-  const parentIdx = node.parentNode.childNodes.indexOf(node)
-  node.parentNode.childNodes[parentIdx] = replacement
-  replacement.parent = node.parent
-}
-
-function walkParse5Ast (ast, onNode) {
-  const stack = [ast]
-  while (stack.length) {
-    const node = stack.shift()
-
-    onNode(node)
-
-    if (node.childNodes && node.childNodes.length) {
-      stack.push(...node.childNodes)
-    } else if (node.tagName === 'template' && node.content.childNodes && node.content.childNodes.length) {
-      stack.push(...node.content.childNodes)
-    }
-  }
-}
+import {
+  walkParse5Ast,
+  serializeParse5Ast,
+  getAttr,
+  setAttr,
+  delAttr,
+  addClass,
+  replaceNode,
+} from '../parse5Utils'
 
 export function modifyTemplateHtml (htmlFile, source, ast, associatedCssFileContent, domManualClass, result) {
   let modified = false
@@ -105,12 +64,7 @@ export function modifyTemplateHtml (htmlFile, source, ast, associatedCssFileCont
   })
 
   if (modified) {
-    let newSource
-    newSource = parse5.serialize(ast)
-    // replace the quotes around `foo="{bar}"` which parse5 adds, but the LWC compiler doesn't like
-    newSource = newSource.replace(/(\w+)="{([\w.]+)+}"/g, '$1={$2}')
-
-    result.overwrite[htmlFile] = newSource
+    result.overwrite[htmlFile] = serializeParse5Ast(ast)
   }
   return hasDomManual
 }

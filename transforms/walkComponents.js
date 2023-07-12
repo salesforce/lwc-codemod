@@ -37,7 +37,8 @@ export async function * walkComponents ({ dir, include, exclude }) {
 
     const templates = await Promise.all(htmlImports.map(async htmlFile => {
       const source = await fs.readFile(htmlFile, 'utf8')
-      const ast = parse5.parseFragment(source)
+      const parse5Errors = []
+      const ast = parse5.parseFragment(source, { sourceCodeLocationInfo: true, onParseError: (error) => parse5Errors.push(error) })
 
       const fileName = htmlFile.replace(/\.html$/, '')
       const isScssFile = await isFile(fileName + '.scss')
@@ -61,6 +62,7 @@ export async function * walkComponents ({ dir, include, exclude }) {
         file: htmlFile,
         source,
         ast,
+        parse5Errors,
         stylesheets
       }
     }))
