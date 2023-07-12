@@ -37,7 +37,8 @@ export const invalidTemplateAttributes = async ({ templates }) => {
         const ctx = { isRoot: true, modified: false }
         walkParse5Ast(ast, removeInvalidAttributes, ctx)
         if (ctx.modified) {
-            result.overwrite[file] = serializeParse5Ast(ast)
+            // parse5 serializes lwc:else as lwc:else="", remove extraneous empty assignment
+            result.overwrite[file] = serializeParse5Ast(ast).replace(/(?<=lwc:else)=\"\"/g, '')
         }
     })
 
