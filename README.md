@@ -120,6 +120,8 @@ Will become
 
 Removes invalid attributes from both root and non-root `templates`.
 
+These attributes are ignored by LWC during parsing, and are thus safe to remove.
+
 For example:
 
 ```html
