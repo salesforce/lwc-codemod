@@ -16,23 +16,21 @@ const isValidRootTemplateDirective = (attr) => rootTemplateDirectives.has(attr.n
 const isValidNonRootTemplateDirective = (attr) =>
 // Note @lwc/template-compiler does not expose an iterator type but rather refers to it as 'forof'
   nonRootTemplateDirectives.has(attr.name) || attr.name.startsWith('iterator:')
-const isRootTemplate = ({ parentNode }) =>
-  parentNode?.nodeName === '#document-fragment' && parentNode?.sourceCodeLocation === undefined
-const isConditionalAttr = (attr) => attr.name === 'if:true' || attr.name === 'if:false'
 
-export const fixHtmlTemplateDirectives = ({ ast, file }, result) => {
+export const fixInvalidTemplateAttributes = ({ ast, file }, result) => {
   let modifiedSource = false
 
   walkParse5Ast(ast, (node) => {
+    const isRootTemplate = node.tagName === 'template' && node.parentNode === ast
     // Remove erroneous attributes on template elements
     if (node.tagName === 'template') {
-      const isValidTemplateDirective = isRootTemplate(node)
+      const isValidTemplateDirective = isRootTemplate
         ? isValidRootTemplateDirective
         : isValidNonRootTemplateDirective
 
       const validTemplateAttrs = node.attrs.filter(isValidTemplateDirective)
       if (validTemplateAttrs.length !== node.attrs.length) {
-        if (!validTemplateAttrs.length && !isRootTemplate(node)) {
+        if (!validTemplateAttrs.length && !isRootTemplate) {
           // Note that LWC does not render the content of non-root templates.
           // As such, we remove the template entirely when there are no valid template directives associated with it.
           deleteNode(node)
@@ -42,18 +40,6 @@ export const fixHtmlTemplateDirectives = ({ ast, file }, result) => {
 
         modifiedSource = true
       }
-    }
-
-    // Remove duplicate if:true/if:false attributes
-    const conditionalAttrs = node.attrs?.filter(isConditionalAttr)
-    if (conditionalAttrs?.length > 1) {
-      // In LWC only the first if:true/if:false is processed
-      // Keep the first occurrence and discard the rest
-      node.attrs = node.attrs.filter(
-        (attr) => !isConditionalAttr(attr) || attr === conditionalAttrs[0]
-      )
-
-      modifiedSource = true
     }
   })
 

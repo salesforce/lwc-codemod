@@ -4,9 +4,10 @@
  * SPDX-License-Identifier: BSD-3-Clause
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import { fixHtmlTemplateDirectives } from './invalidTemplateAttributes.js'
+import { fixInvalidTemplateAttributes } from './invalidTemplateAttributes.js'
+import { fixMultipleIfTrueIfFalseAttributes } from './multipleIfTrueIfFalseAttributes.js'
 
-const transforms = [fixHtmlTemplateDirectives]
+const transforms = [fixInvalidTemplateAttributes, fixMultipleIfTrueIfFalseAttributes]
 
 export const htmlTemplateCleanup = async ({ templates }) => {
   const result = {
@@ -14,6 +15,7 @@ export const htmlTemplateCleanup = async ({ templates }) => {
     delete: []
   }
 
+  // TODO: Refactor the template fixes to use a visitor pattern
   templates.forEach(template => {
     transforms.forEach(transform => transform(template, result))
   })
