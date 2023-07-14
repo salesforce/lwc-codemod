@@ -4,9 +4,9 @@
  * SPDX-License-Identifier: BSD-3-Clause
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import { fixClosingOfElementWithOpenChildElements } from './closingOfElementWithOpenChildElements'
-import { fixEndTagWithoutMatchingOpenElement } from './endTagWithoutMatchingOpenElement'
-import { fixEofInElementThatCanContainOnlyText } from './eofInElementThatCanContainOnlyText'
+import { fixClosingOfElementWithOpenChildElements } from './closingOfElementWithOpenChildElements.js'
+import { fixEndTagWithoutMatchingOpenElement } from './endTagWithoutMatchingOpenElement.js'
+import { fixEofInElementThatCanContainOnlyText } from './eofInElementThatCanContainOnlyText.js'
 import { fixInvalidTemplateAttributes } from './invalidTemplateAttributes.js'
 import { fixMultipleIfTrueIfFalseAttributes } from './multipleIfTrueIfFalseAttributes.js'
 
