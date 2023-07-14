@@ -4,10 +4,19 @@
  * SPDX-License-Identifier: BSD-3-Clause
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
+import { fixClosingOfElementWithOpenChildElements } from './closingOfElementWithOpenChildElements'
+import { fixEndTagWithoutMatchingOpenElement } from './endTagWithoutMatchingOpenElement'
+import { fixEofInElementThatCanContainOnlyText } from './eofInElementThatCanContainOnlyText'
 import { fixInvalidTemplateAttributes } from './invalidTemplateAttributes.js'
 import { fixMultipleIfTrueIfFalseAttributes } from './multipleIfTrueIfFalseAttributes.js'
 
-const transforms = [fixInvalidTemplateAttributes, fixMultipleIfTrueIfFalseAttributes]
+const transforms = [
+  fixInvalidTemplateAttributes,
+  fixMultipleIfTrueIfFalseAttributes,
+  fixClosingOfElementWithOpenChildElements,
+  fixEndTagWithoutMatchingOpenElement,
+  fixEofInElementThatCanContainOnlyText
+]
 
 export const htmlTemplateCleanup = async ({ templates }) => {
   const result = {
@@ -16,8 +25,8 @@ export const htmlTemplateCleanup = async ({ templates }) => {
   }
 
   // TODO: Refactor the template fixes to use a visitor pattern
-  templates.forEach(template => {
-    transforms.forEach(transform => transform(template, result))
+  templates.forEach((template) => {
+    transforms.forEach((transform) => transform(template, result))
   })
 
   return result

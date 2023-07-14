@@ -144,6 +144,45 @@ Note that for non-root `template` elements, if there aren't any valid directives
 
 As a corrective measure, this mod will therefore remove any `template` elements without valid directives.
 
+##### HTML parsing errors
+
+Fixes errors generated during LWC HTML parsing.
+
+The following transforms are available for each errors:
+
+###### `eof-in-element-that-can-contain-only-text`
+
+This is an unexpected end of file in an element that can only contain text. 
+
+```html
+<template>
+    <span>eof-in-element-that-can-contain-only-text</span>
+<textarea>asdf
+```
+
+###### `end-tag-without-matching-open-element`
+
+This is a closing `template` tag without a matching opening tag.
+
+```html
+<template>
+    <span>end-tag-without-matching-open-element</span>
+</template>
+</template>
+```
+
+###### `closing-of-element-with-open-child-elements`
+
+This is an unexpected closing tag with open child elements.
+
+```html
+<template>
+    <section>
+        <span>closing-of-element-with-open-child-elements</span>
+</template>
+
+```
+
 ## Contributing
 
 Install dependencies:
