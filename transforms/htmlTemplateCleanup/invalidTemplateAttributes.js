@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import { walkParse5Ast, serializeParse5Ast, deleteNode } from '../parse5Utils'
+import { walkParse5Ast, serializeParse5Ast, deleteNode } from '../parse5Utils.js'
 import { TemplateDirectiveName, RootDirectiveName } from '@lwc/template-compiler'
 
 const rootTemplateDirectives = new Set(Object.values(RootDirectiveName))
