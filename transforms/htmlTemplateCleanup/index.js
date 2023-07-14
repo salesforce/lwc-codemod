@@ -7,8 +7,12 @@
 import { fixClosingOfElementWithOpenChildElements } from './closingOfElementWithOpenChildElements'
 import { fixEndTagWithoutMatchingOpenElement } from './endTagWithoutMatchingOpenElement'
 import { fixEofInElementThatCanContainOnlyText } from './eofInElementThatCanContainOnlyText'
+import { fixInvalidTemplateAttributes } from './invalidTemplateAttributes.js'
+import { fixMultipleIfTrueIfFalseAttributes } from './multipleIfTrueIfFalseAttributes.js'
 
 const transforms = [
+    fixInvalidTemplateAttributes,
+    fixMultipleIfTrueIfFalseAttributes,
   fixClosingOfElementWithOpenChildElements,
   fixEndTagWithoutMatchingOpenElement,
   fixEofInElementThatCanContainOnlyText

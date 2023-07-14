@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2021, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
 import * as parse5Module from 'parse5'
 
 const parse5 = parse5Module.default ?? parse5Module
@@ -47,5 +53,10 @@ export const addClass = (node, className) => {
 export const replaceNode = (node, replacement) => {
   const parentIdx = node.parentNode.childNodes.indexOf(node)
   node.parentNode.childNodes[parentIdx] = replacement
-  replacement.parent = node.parent
+  replacement.parentNode = node.parentNode
+}
+
+export const deleteNode = (node) => {
+  node.parentNode.childNodes = node.parentNode.childNodes.filter(child => child !== node)
+  node.parentNode = null
 }

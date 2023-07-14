@@ -12,7 +12,7 @@ import {
   delAttr,
   addClass,
   replaceNode
-} from '../parse5Utils'
+} from '../parse5Utils.js'
 
 export function modifyTemplateHtml (htmlFile, source, ast, associatedCssFileContent, domManualClass, result) {
   let modified = false

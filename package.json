@@ -9,6 +9,7 @@
     "lwc-codemod": "transforms/cli.js"
   },
   "dependencies": {
+    "@lwc/template-compiler": "^3.0.1",
     "jscodeshift": "^0.13.1",
     "parse5": "^6.0.1",
     "postcss": "^8.4.5",
