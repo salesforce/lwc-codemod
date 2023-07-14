@@ -11,8 +11,8 @@ import { fixInvalidTemplateAttributes } from './invalidTemplateAttributes.js'
 import { fixMultipleIfTrueIfFalseAttributes } from './multipleIfTrueIfFalseAttributes.js'
 
 const transforms = [
-    fixInvalidTemplateAttributes,
-    fixMultipleIfTrueIfFalseAttributes,
+  fixInvalidTemplateAttributes,
+  fixMultipleIfTrueIfFalseAttributes,
   fixClosingOfElementWithOpenChildElements,
   fixEndTagWithoutMatchingOpenElement,
   fixEofInElementThatCanContainOnlyText
