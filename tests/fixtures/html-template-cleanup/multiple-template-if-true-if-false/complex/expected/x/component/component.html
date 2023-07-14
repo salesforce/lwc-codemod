@@ -1,0 +1,7 @@
+<template>
+    <template for:each={contacts} if:true={visible}>
+        <li key={contact.Id}>
+            {contact.Name}, {contact.Title}
+        </li>
+    </template>
+</template>
