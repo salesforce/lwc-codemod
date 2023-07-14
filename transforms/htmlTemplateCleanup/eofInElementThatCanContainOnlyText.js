@@ -20,23 +20,16 @@ const closeElement = (node, errorsMap) => {
   }
 }
 
-export const eofInElementThatCanContainOnlyText = async ({ templates }) => {
-  const result = {
-    overwrite: {},
-    delete: []
+export const fixEofInElementThatCanContainOnlyText = ({ ast, file, parse5Errors }, result) => {
+  const filteredErrors = parse5Errors
+    .filter(({ code }) => code === 'eof-in-element-that-can-contain-only-text')
+    .map(({ code, ...location }) => [location.endOffset, location])
+
+  const errorsMap = new Map(filteredErrors)
+  if (errorsMap.size) {
+    walkParse5Ast(ast, closeElement, errorsMap)
+    result.overwrite[file] = serializeParse5Ast(ast)
   }
-
-  templates.forEach(({ ast, file, parse5Errors }) => {
-    const filteredErrors = parse5Errors
-      .filter(({ code }) => code === 'eof-in-element-that-can-contain-only-text')
-      .map(({ code, ...location }) => [location.endOffset, location])
-
-    const errorsMap = new Map(filteredErrors)
-    if (errorsMap.size) {
-      walkParse5Ast(ast, closeElement, errorsMap)
-      result.overwrite[file] = serializeParse5Ast(ast)
-    }
-  })
 
   return result
 }

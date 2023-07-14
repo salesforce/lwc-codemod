@@ -30,7 +30,7 @@ Available transforms:
 
 - [Shadow DOM to Light DOM](#shadow-dom-to-light-dom) (`shadow-to-light`)
 - [Synthetic Shadow DOM to Native Shadow DOM](#synthetic-shadow-dom-to-native-shadow-dom) (`synthetic-to-native`)
-- [HTML parsing errors](#html-parsing-errors)
+- [HTML Template Cleanup](#html-template-cleanup) (`html-template-cleanup`)
 
 ### Shadow DOM to Light DOM
 
@@ -82,15 +82,15 @@ Converts components from synthetic shadow to native shadow.
 
 The only transformation it currently applies is to add the `static shadowSupportMode` property. Any other discrepancies between native shadow and synthetic shadow will have to be handled manually.
 
-### HTML Parsing Errors
+### HTML Template Cleanup
 
 #### Usage
 
 ```sh
-lwc-codemod <error-name> <path>
+lwc-codemod html-template-cleanup <path>
 ```
 
-#### Summary
+##### HTML parsing errors
 
 Fixes errors generated during LWC HTML parsing.
 
