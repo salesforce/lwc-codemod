@@ -10,10 +10,7 @@ import fs from 'fs/promises'
 import { walkComponents } from './walkComponents.js'
 import { shadowToLight } from './shadowToLight/index.js'
 import { syntheticToNative } from './syntheticToNative/index.js'
-import {
-  multipleTemplateIfTrueIfFalse,
-  invalidTemplateAttributes
-} from './templateDirectives/index.js'
+import { htmlTemplateCleanup } from './htmlTemplateCleanup/index.js'
 
 const include = ['.js', '.ts']
 const exclude = ['__tests__', '.stories.ts']
@@ -21,8 +18,7 @@ const exclude = ['__tests__', '.stories.ts']
 const transforms = {
   'shadow-to-light': shadowToLight,
   'synthetic-to-native': syntheticToNative,
-  'multiple-template-if-true-if-false': multipleTemplateIfTrueIfFalse,
-  'invalid-template-attributes': invalidTemplateAttributes
+  'html-template-cleanup': htmlTemplateCleanup
 }
 
 export async function runTransform (dir, transformPath) {

@@ -53,5 +53,10 @@ export const addClass = (node, className) => {
 export const replaceNode = (node, replacement) => {
   const parentIdx = node.parentNode.childNodes.indexOf(node)
   node.parentNode.childNodes[parentIdx] = replacement
-  replacement.parent = node.parent
+  replacement.parentNode = node.parentNode
+}
+
+export const deleteNode = (node) => {
+  node.parentNode.childNodes = node.parentNode.childNodes.filter(child => child !== node)
+  node.parentNode = null
 }
