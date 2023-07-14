@@ -802,17 +802,17 @@
 
 "@lwc/errors@3.0.1":
   version "3.0.1"
-  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/errors/-/errors-3.0.1.tgz#ae9b5f42f90aa2850e868b867f9dd1d4d6e64826"
+  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-3.0.1.tgz#ae9b5f42f90aa2850e868b867f9dd1d4d6e64826"
   integrity sha512-RDg+Sr9+u9yxHztKPJMMIGWceFK1gEGhz3z6tjFr4OtxQ0PYmAMYCFHfEwohNLU2x/5gbZQCqpYHgnnq/jSoCw==
 
 "@lwc/shared@3.0.1":
   version "3.0.1"
-  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/shared/-/shared-3.0.1.tgz#1bff3f4ab50202b300bfc5fb97ae4bf17afcdbec"
+  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-3.0.1.tgz#1bff3f4ab50202b300bfc5fb97ae4bf17afcdbec"
   integrity sha512-D/fQ+oTkb4Ce9Y5pJDMibDlKax0hIFHkLv8LqBbdA+pgDqjCaCEby0Ah1QaH+XO/WiUEVT3+K7/xJeHoJ9gsJw==
 
 "@lwc/template-compiler@^3.0.1":
   version "3.0.1"
-  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/template-compiler/-/template-compiler-3.0.1.tgz#2127f8a7de413ae0c037ce7dad75a87b433d3120"
+  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-3.0.1.tgz#2127f8a7de413ae0c037ce7dad75a87b433d3120"
   integrity sha512-1/W7NeDRX+hcgh0dgc2P8mNowolwIvhh56OeWXQngQt0iig8+ai2NjmnG/fsIPzNKpNLktiuayd4w8c7mIK/8g==
   dependencies:
     "@lwc/errors" "3.0.1"
@@ -968,7 +968,7 @@ acorn@^8.2.4:
 
 acorn@~8.10.0:
   version "8.10.0"
-  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/acorn/-/acorn-8.10.0.tgz#8be5b3907a67221a81ab23c7889c4c5526b62ec5"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.10.0.tgz#8be5b3907a67221a81ab23c7889c4c5526b62ec5"
   integrity sha512-F0SAmZ8iUtS//m8DmCTA0jlh6TDKkHQyK6xc6V4KDTyZKA9dnvX9/3sRTVQrWm79glUAZbnmmNcdYwUIHWVybw==
 
 agent-base@6:
@@ -1117,7 +1117,7 @@ astral-regex@^2.0.0:
 
 astring@~1.8.6:
   version "1.8.6"
-  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/astring/-/astring-1.8.6.tgz#2c9c157cf1739d67561c56ba896e6948f6b93731"
+  resolved "https://registry.yarnpkg.com/astring/-/astring-1.8.6.tgz#2c9c157cf1739d67561c56ba896e6948f6b93731"
   integrity sha512-ISvCdHdlTDlH5IpxQJIex7BWBywFWgjJSVdwst+/iQCoEYnyOaQ95+X1JGshuBjGp6nxKUy1jMgE3zPqN7fQdg==
 
 asynckit@^0.4.0:
@@ -1947,7 +1947,7 @@ estraverse@^5.1.0, estraverse@^5.2.0:
 
 estree-walker@~2.0.2:
   version "2.0.2"
-  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
+  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
   integrity sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==
 
 esutils@^2.0.2:
@@ -2313,7 +2313,7 @@ has@^1.0.3:
 
 he@~1.2.0:
   version "1.2.0"
-  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
+  resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
 hosted-git-info@^2.1.4:
