@@ -151,8 +151,6 @@ The following transforms are available for each errors:
 - `end-tag-without-matching-open-element`
 - `closing-of-element-with-open-child-elements`
 
-
-
 ## Contributing
 
 Install dependencies:
