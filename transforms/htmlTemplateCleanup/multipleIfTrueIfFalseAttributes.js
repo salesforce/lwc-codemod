@@ -28,6 +28,5 @@ export const fixMultipleIfTrueIfFalseAttributes = ({ ast, file }, result) => {
   if (modifiedSource) {
     result.overwrite[file] = serializeParse5Ast(ast)
   }
-
   return result
 }
