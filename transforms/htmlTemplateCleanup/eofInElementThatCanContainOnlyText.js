@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import { walkParse5Ast, serializeParse5Ast } from '../parse5Utils'
+import { walkParse5Ast, serializeParse5Ast } from '../parse5Utils.js'
 
 const closeElement = (node, errorsMap) => {
   const { endOffset, startTag } = node.sourceCodeLocation ?? {}
