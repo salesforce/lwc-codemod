@@ -20,3 +20,4 @@ jobs:
       - run: yarn --frozen-lockfile
       - run: yarn lint
       - run: yarn test
+      - run: bash ./bin/smoke-test.sh
