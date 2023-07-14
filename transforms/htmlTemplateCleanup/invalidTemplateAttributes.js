@@ -44,7 +44,7 @@ export const fixInvalidTemplateAttributes = ({ ast, file }, result) => {
   })
 
   if (modifiedSource) {
-    result.overwrite[file] = serializeParse5Ast(ast).replace(/(?<=lwc:else)=\"\"/g, '')
+    result.overwrite[file] = serializeParse5Ast(ast).replace(/(?<=lwc:else)=""/g, '')
   }
 
   return result
