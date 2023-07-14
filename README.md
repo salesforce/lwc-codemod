@@ -92,7 +92,7 @@ lwc-codemod <error-name> <path>
 
 #### Summary
 
-Fixes parsing HTML parsing errors generated in LWC through `parse5`
+Fixes errors generated during LWC HTML parsing.
 
 The following transforms are available for each errors:
 - `eof-in-element-that-can-contain-only-text`
