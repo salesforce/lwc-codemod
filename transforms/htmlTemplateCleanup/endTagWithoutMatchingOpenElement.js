@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import { serializeParse5Ast } from '../parse5Utils'
+import { serializeParse5Ast } from '../parse5Utils.js'
 
 export const fixEndTagWithoutMatchingOpenElement = ({ ast, file, parse5Errors }, result) => {
   const hasEndTagWithoutMatchingOpenElement = parse5Errors.some(
