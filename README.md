@@ -2,7 +2,11 @@
 
 Codemods for [LWC](https://lwc.dev/). In other words: scripts to transform LWC component code.
 
-Currently it can convert components from shadow DOM to [light DOM](https://lwc.dev/guide/light_dom#light-dom-(developer-preview)) and from synthetic shadow DOM to [native shadow DOM](https://rfcs.lwc.dev/rfcs/lwc/0115-mixed-shadow-mode).
+This tool currently can:
+
+- convert components from shadow DOM to [light DOM](https://lwc.dev/guide/light_dom#light-dom-(developer-preview))
+- convert components from synthetic shadow DOM to [native shadow DOM](https://rfcs.lwc.dev/rfcs/lwc/0115-mixed-shadow-mode)
+- clean up HTML syntax errors
 
 ## Installation
 
