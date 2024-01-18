@@ -15,16 +15,15 @@ function readdirRecursiveSync(root, files, prefix) {
   files = files || []
 
   const dir = path.join(root, prefix)
-  if (!fs.existsSync(dir)) {
-    return files
-  }
-  if (prefix) {
-    files.push(prefix)
-  }
-  if (fs.statSync(dir).isDirectory()) {
-    fs.readdirSync(dir).forEach(function (name) {
-      readdirRecursiveSync(root, files, path.join(prefix, name))
-    })
+  if (fs.existsSync(dir)) {
+    if (prefix) {
+      files.push(prefix)
+    }
+    if (fs.statSync(dir).isDirectory()) {
+      for (const name of fs.readdirSync(dir)) {
+        readdirRecursiveSync(root, files, path.join(prefix, name))
+      }
+    }
   }
 
   return files
