@@ -8,6 +8,28 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
+// Based on https://github.com/fs-utils/fs-readdir-recursive/blob/f810b44/index.js
+// Can be replaced with fs.readdirSync(..., { recursive: true }) when we drop Node 18 support
+function readdirRecursiveSync(root, files, prefix) {
+  prefix = prefix || ''
+  files = files || []
+
+  const dir = path.join(root, prefix)
+  if (!fs.existsSync(dir)) {
+    return files
+  }
+  if (prefix) {
+    files.push(prefix)
+  }
+  if (fs.statSync(dir).isDirectory()) {
+    fs.readdirSync(dir).forEach(function (name) {
+      readdirRecursiveSync(root, files, path.join(prefix, name))
+    })
+  }
+
+  return files
+}
+
 function toMatchFile (receivedContent, filename) {
   const { snapshotState, expand, utils } = this
   const fileExists = fs.existsSync(filename)
@@ -94,7 +116,8 @@ expect.extend({ toMatchFile })
 
 export function testFixtureDir (root, testFn) {
   // find all directories matching `input`. these may be deeply nested
-  const inputDirs = fs.readdirSync(root, { recursive: true })
+
+  const inputDirs = readdirRecursiveSync(root)
     .filter(_ => _.endsWith('/input'))
     .map(_ => path.resolve(root, _))
 
