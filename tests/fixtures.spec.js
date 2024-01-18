@@ -8,10 +8,10 @@ import { jest } from '@jest/globals'
 import { testFixtureDir } from './utils/jestUtils.js'
 import { main } from '../transforms/index.js'
 import { copyDir, getAllFilesInDir } from '../transforms/fsUtils.js'
-import path from 'path'
-import { readdirSync } from 'fs'
-import fs from 'fs/promises'
-import os from 'os'
+import path from 'node:path'
+import { readdirSync } from 'node:fs'
+import fs from 'node:fs/promises'
+import os from 'node:os'
 import { observer } from '../transforms/observer.js'
 
 jest.setTimeout(60000)
@@ -20,11 +20,7 @@ describe('fixtures', () => {
   const transforms = readdirSync('./tests/fixtures')
   for (const transform of transforms) {
     describe(transform, () => {
-      testFixtureDir(
-        {
-          root: `./tests/fixtures/${transform}`,
-          pattern: '**/input'
-        },
+      testFixtureDir(`./tests/fixtures/${transform}`,
         async ({ dirname }) => {
           const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lwc-codemod-'))
           const expectedDir = path.join(path.dirname(dirname), 'expected')

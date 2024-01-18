@@ -5,9 +5,29 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 // via https://github.com/salesforce/lwc/blob/81a90709bb6eb84b41f1cfe29d6afe15c9a97a13/scripts/jest/utils/index.ts
-import fs from 'fs'
-import path from 'path'
-import glob from 'glob'
+import fs from 'node:fs'
+import path from 'node:path'
+
+// Based on https://github.com/fs-utils/fs-readdir-recursive/blob/f810b44/index.js
+// Can be replaced with fs.readdirSync(..., { recursive: true }) when we drop Node 18 support
+function readdirRecursiveSync (root, files, prefix) {
+  prefix = prefix || ''
+  files = files || []
+
+  const dir = path.join(root, prefix)
+  if (fs.existsSync(dir)) {
+    if (prefix) {
+      files.push(prefix)
+    }
+    if (fs.statSync(dir).isDirectory()) {
+      for (const name of fs.readdirSync(dir)) {
+        readdirRecursiveSync(root, files, path.join(prefix, name))
+      }
+    }
+  }
+
+  return files
+}
 
 function toMatchFile (receivedContent, filename) {
   const { snapshotState, expand, utils } = this
@@ -93,22 +113,14 @@ function toMatchFile (receivedContent, filename) {
 // Register jest matcher.
 expect.extend({ toMatchFile })
 
-export function testFixtureDir (config, testFn) {
-  if (typeof config !== 'object' || config === null) {
-    throw new TypeError('Expected first argument to be an object')
-  }
-  if (typeof testFn !== 'function') {
-    throw new TypeError('Expected second argument to be a function')
-  }
-  const { pattern, root } = config
-  if (!pattern || !root) {
-    throw new TypeError('Expected a "root" and a "pattern" config to be specified')
-  }
-  const matches = glob.sync(pattern, {
-    cwd: root,
-    absolute: true
-  })
-  for (const dirname of matches) {
+export function testFixtureDir (root, testFn) {
+  // find all directories matching `input`. these may be deeply nested
+
+  const inputDirs = readdirRecursiveSync(root)
+    .filter(_ => _.endsWith('/input'))
+    .map(_ => path.resolve(root, _))
+
+  for (const dirname of inputDirs) {
     const fixtureName = path.relative(root, dirname)
     test(fixtureName.replace('/input', ''), async () => {
       const outputs = await testFn({
