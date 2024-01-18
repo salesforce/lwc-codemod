@@ -7,7 +7,6 @@
 // via https://github.com/salesforce/lwc/blob/81a90709bb6eb84b41f1cfe29d6afe15c9a97a13/scripts/jest/utils/index.ts
 import fs from 'node:fs'
 import path from 'node:path'
-import { globSync } from 'glob'
 
 function toMatchFile (receivedContent, filename) {
   const { snapshotState, expand, utils } = this
@@ -93,22 +92,13 @@ function toMatchFile (receivedContent, filename) {
 // Register jest matcher.
 expect.extend({ toMatchFile })
 
-export function testFixtureDir (config, testFn) {
-  if (typeof config !== 'object' || config === null) {
-    throw new TypeError('Expected first argument to be an object')
-  }
-  if (typeof testFn !== 'function') {
-    throw new TypeError('Expected second argument to be a function')
-  }
-  const { pattern, root } = config
-  if (!pattern || !root) {
-    throw new TypeError('Expected a "root" and a "pattern" config to be specified')
-  }
-  const matches = globSync(pattern, {
-    cwd: root,
-    absolute: true
-  })
-  for (const dirname of matches) {
+export function testFixtureDir (root, testFn) {
+  // find all directories matching `input`. these may be deeply nested
+  const inputDirs = fs.readdirSync(root, { recursive: true })
+    .filter(_ => _.endsWith('/input'))
+    .map(_ => path.resolve(root, _))
+
+  for (const dirname of inputDirs) {
     const fixtureName = path.relative(root, dirname)
     test(fixtureName.replace('/input', ''), async () => {
       const outputs = await testFn({

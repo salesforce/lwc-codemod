@@ -20,11 +20,7 @@ describe('fixtures', () => {
   const transforms = readdirSync('./tests/fixtures')
   for (const transform of transforms) {
     describe(transform, () => {
-      testFixtureDir(
-        {
-          root: `./tests/fixtures/${transform}`,
-          pattern: '**/input'
-        },
+      testFixtureDir(`./tests/fixtures/${transform}`,
         async ({ dirname }) => {
           const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lwc-codemod-'))
           const expectedDir = path.join(path.dirname(dirname), 'expected')
