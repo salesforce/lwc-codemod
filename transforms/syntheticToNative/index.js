@@ -11,7 +11,7 @@ export const syntheticToNative = async ({ component }) => {
     overwrite: {},
     delete: []
   }
-  const modified = replaceOrInsertStaticProperty(component.ast, 'shadowSupportMode', 'any')
+  const modified = replaceOrInsertStaticProperty(component.ast, 'shadowSupportMode', 'native')
   if (modified) {
     result.overwrite[component.file] = component.ast.toSource()
   }
