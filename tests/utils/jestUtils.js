@@ -10,7 +10,7 @@ import path from 'node:path'
 
 // Based on https://github.com/fs-utils/fs-readdir-recursive/blob/f810b44/index.js
 // Can be replaced with fs.readdirSync(..., { recursive: true }) when we drop Node 18 support
-function readdirRecursiveSync(root, files, prefix) {
+function readdirRecursiveSync (root, files, prefix) {
   prefix = prefix || ''
   files = files || []
 
