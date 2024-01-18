@@ -5,9 +5,9 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 // via https://github.com/salesforce/lwc/blob/81a90709bb6eb84b41f1cfe29d6afe15c9a97a13/scripts/jest/utils/index.ts
-import fs from 'fs'
-import path from 'path'
-import glob from 'glob'
+import fs from 'node:fs'
+import path from 'node:path'
+import { glob } from 'glob'
 
 function toMatchFile (receivedContent, filename) {
   const { snapshotState, expand, utils } = this
