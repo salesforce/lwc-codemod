@@ -7,7 +7,7 @@
 // via https://github.com/salesforce/lwc/blob/81a90709bb6eb84b41f1cfe29d6afe15c9a97a13/scripts/jest/utils/index.ts
 import fs from 'node:fs'
 import path from 'node:path'
-import { glob } from 'glob'
+import { globSync } from 'glob'
 
 function toMatchFile (receivedContent, filename) {
   const { snapshotState, expand, utils } = this
@@ -104,7 +104,7 @@ export function testFixtureDir (config, testFn) {
   if (!pattern || !root) {
     throw new TypeError('Expected a "root" and a "pattern" config to be specified')
   }
-  const matches = glob.sync(pattern, {
+  const matches = globSync(pattern, {
     cwd: root,
     absolute: true
   })
