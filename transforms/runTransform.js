@@ -7,6 +7,7 @@
 import { isDirectory } from './fsUtils.js'
 import { observer } from './observer.js'
 import fs from 'fs/promises'
+import path from 'path'
 import { walkComponents } from './walkComponents.js'
 import { shadowToLight } from './shadowToLight/index.js'
 import { syntheticToNative } from './syntheticToNative/index.js'
@@ -19,6 +20,14 @@ const transforms = {
   'shadow-to-light': shadowToLight,
   'synthetic-to-native': syntheticToNative,
   'html-template-cleanup': htmlTemplateCleanup
+}
+
+function uniqByAbsPath(filePaths) {
+  const set = new Set()
+  for (const filePath of filePaths) {
+    set.add(path.resolve(filePath))
+  }
+  return [...set]
 }
 
 export async function runTransform (dir, transformPath) {
@@ -59,7 +68,10 @@ export async function runTransform (dir, transformPath) {
       for (const [file, content] of Object.entries(result.overwrite)) {
         await writeFile(file, content)
       }
-      for (const file of result.delete) {
+      // TODO: this is a hacky solution to the problem - it would be better to avoid running duplicate transforms
+      // in the first place. But this is a simple solution to the problem of trying to delete the same file twice
+      // because one is a relative path and the other is an absolute path.
+      for (const file of uniqByAbsPath(result.delete)) {
         await deleteFile(file)
       }
     }

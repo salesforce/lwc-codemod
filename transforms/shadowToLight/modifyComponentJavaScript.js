@@ -71,10 +71,27 @@ function replaceThisDotTemplate (ast) {
   })
 }
 
+// Replace e.g. `import stylesheet from './foo.css'` with `import stylesheet from './foo.scoped.css'`, since
+// we assume the `.css` file will be renamed to `.scoped.css` elsewhere
+function replaceImportsOfCss (ast) {
+  ast.find(j.ImportDeclaration)
+    .forEach(path => {
+      const { value: { source } } = path
+      if (source.type === 'Literal' && source.value.endsWith('.css') && !source.value.endsWith('.scoped.css')) {
+      j(path).replaceWith(
+      j.importDeclaration(
+        path.node.specifiers,
+        j.stringLiteral(source.value.replace(/\.css$/, '.scoped.css'))
+      ))
+      }
+  })
+}
+
 export function modifyComponentJavaScript (jsFile, source, ast, result) {
   const modified = replaceOrInsertStaticProperty(ast, 'renderMode', 'light')
   if (modified) { // not already a light DOM component
     replaceThisDotTemplate(ast)
+    replaceImportsOfCss(ast)
     let newSource = ast.toSource()
     // simple search and replace for this.template.querySelector('slot'), probably don't need a full AST parse for this
     newSource = newSource.replace(
