@@ -78,13 +78,13 @@ function replaceImportsOfCss (ast) {
     .forEach(path => {
       const { value: { source } } = path
       if (source.type === 'Literal' && source.value.endsWith('.css') && !source.value.endsWith('.scoped.css')) {
-      j(path).replaceWith(
-      j.importDeclaration(
-        path.node.specifiers,
-        j.stringLiteral(source.value.replace(/\.css$/, '.scoped.css'))
-      ))
+        j(path).replaceWith(
+          j.importDeclaration(
+            path.node.specifiers,
+            j.stringLiteral(source.value.replace(/\.css$/, '.scoped.css'))
+          ))
       }
-  })
+    })
 }
 
 export function modifyComponentJavaScript (jsFile, source, ast, result) {

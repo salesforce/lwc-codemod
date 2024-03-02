@@ -22,7 +22,7 @@ const transforms = {
   'html-template-cleanup': htmlTemplateCleanup
 }
 
-function uniqByAbsPath(filePaths) {
+function uniqByAbsPath (filePaths) {
   const set = new Set()
   for (const filePath of filePaths) {
     set.add(path.resolve(filePath))
