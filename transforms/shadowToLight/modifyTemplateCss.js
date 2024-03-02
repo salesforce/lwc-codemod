@@ -70,19 +70,13 @@ const migrateSlotsSelector = () => {
 }
 migrateSlotsSelector.postcss = true
 
-export async function modifyTemplateCss (fileName, stylesheets, hasDomManual, domManualClass, result) {
-  // Just concatenate the scoped and unscoped CSS from a shadow DOM stylesheet.
-  // For light DOM, it's closer to just call all of it "scoped."
-  const source = stylesheets.map(_ => _.source).join('\n')
-  const isScssFile = await isFile(fileName + '.scss')
-  const fileEnding = isScssFile ? '.scss' : '.css'
-
-  const cssFileName = fileName + fileEnding
-  const scopedCssFilename = `${fileName}.scoped${fileEnding}`
+export async function modifyCssDirectly (cssFileName, source, hasDomManual, domManualClass, result) {
+  const scopedCssFilename = cssFileName.replace(/\.(css|scss)$/, '.scoped.$1')
 
   const { css: newScopedCss } = await postcss([
     migrateSlotsSelector()
   ]).process(source, { from: cssFileName, to: cssFileName })
+
   result.overwrite[scopedCssFilename] = newScopedCss
 
   if (hasDomManual) {
@@ -96,4 +90,15 @@ export async function modifyTemplateCss (fileName, stylesheets, hasDomManual, do
   } else { // if there's no lwc:dom=manual then we can just delete the global .css file
     result.delete.push(cssFileName)
   }
+}
+
+export async function modifyTemplateCss (fileName, stylesheets, hasDomManual, domManualClass, result) {
+  // Just concatenate the scoped and unscoped CSS from a shadow DOM stylesheet.
+  // For light DOM, it's closer to just call all of it "scoped."
+  const source = stylesheets.map(_ => _.source).join('\n')
+  const isScssFile = await isFile(fileName + '.scss')
+  const fileEnding = isScssFile ? '.scss' : '.css'
+
+  const cssFileName = fileName + fileEnding
+  await modifyCssDirectly(cssFileName, source, hasDomManual, domManualClass, result)
 }

@@ -11,6 +11,18 @@ import { parse5 } from './parse5.js'
 import path from 'path'
 import { uniqBy } from './jsUtils.js'
 
+const cssFilenameToStylesheet = async filename => {
+    if (await isFile(filename)) {
+      const source = await fs.readFile(filename, 'utf8')
+      return {
+        file: path.resolve(filename),
+        source,
+        scoped: filename.endsWith('.scoped.css')
+      }
+    }
+    // return undefined if does not exist
+}
+
 export async function * walkComponents ({ dir, include, exclude }) {
   const scriptFiles = await getAllFilesInDir(dir, include, exclude)
 
@@ -20,13 +32,18 @@ export async function * walkComponents ({ dir, include, exclude }) {
     const ast = fileExtension === '.ts' ? j.withParser('ts')(source) : j(source)
 
     const htmlImports = []
+    const cssImports = []
     ast.find(j.ImportDeclaration).forEach(importDecl => {
       const { value: { source } } = importDecl
       if (source.type === 'Literal') {
         const { value } = source
-        if (((value.startsWith('.') || value.startsWith('/')) && value.endsWith('.html'))) {
+        const isRelativeImport = value.startsWith('.') || value.startsWith('/')
+        if (isRelativeImport && value.endsWith('.html')) {
           // relative HTML import
           htmlImports.push(path.resolve(path.dirname(scriptFile), value))
+        } else if (isRelativeImport && value.endsWith('.css')) {
+          // relative CSS import
+          cssImports.push(path.resolve(path.dirname(scriptFile), value))
         }
       }
     })
@@ -48,16 +65,7 @@ export async function * walkComponents ({ dir, include, exclude }) {
       const cssFile = fileName + fileEnding
       const scopedCssFile = `${fileName}.scoped${fileEnding}`
 
-      const stylesheets = (await Promise.all([cssFile, scopedCssFile].map(async file => {
-        if (await isFile(file)) {
-          const source = await fs.readFile(file, 'utf8')
-          return {
-            file: path.resolve(file),
-            source,
-            scoped: file === scopedCssFile
-          }
-        }
-      }))).filter(Boolean)
+      const stylesheets = (await Promise.all([cssFile, scopedCssFile].map(cssFilenameToStylesheet))).filter(Boolean)
 
       return {
         file: path.resolve(htmlFile),
@@ -73,13 +81,24 @@ export async function * walkComponents ({ dir, include, exclude }) {
     // e.g. component.html implicitly imported by component.js
     const uniqueTemplates = uniqBy(rawTemplates, template => template.file)
 
+    const rawStylesheets = (await Promise.all(cssImports.map(cssFilenameToStylesheet))).filter(Boolean)
+
+    // Make sure we only consider unique stylesheets, and ignore any stylesheets that will already
+    // be processed as part of templates that implicitly import them
+    const uniqueStylesheets = uniqBy(rawStylesheets, stylesheet => stylesheet.file).filter(stylesheet => {
+      return !uniqueTemplates.some(template => {
+        return template.stylesheets && template.stylesheets.some(otherStylesheet => otherStylesheet.file === stylesheet.file)
+      })
+    })
+
     return {
       component: {
         file: path.resolve(scriptFile),
         source,
         ast
       },
-      templates: uniqueTemplates
+      templates: uniqueTemplates,
+      stylesheets: uniqueStylesheets
     }
   }
 

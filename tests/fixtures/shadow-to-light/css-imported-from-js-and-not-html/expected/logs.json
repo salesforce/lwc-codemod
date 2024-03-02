@@ -1,0 +1,15 @@
+{
+  "modified": [
+    "x/component/component.js",
+    "x/component/component.html",
+    "x/component/yolo.scoped.css"
+  ],
+  "deleted": [
+    "x/component/yolo.css"
+  ],
+  "errors": [],
+  "total": {
+    "numModified": 4,
+    "numErrors": 0
+  }
+}

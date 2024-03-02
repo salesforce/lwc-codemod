@@ -1,12 +1,7 @@
 import { LightningElement } from 'lwc'
 
-import template from './component.html';
-import stylesheet from './component.css'
+import stylesheet from './yolo.scoped.css'
 
 export default class extends LightningElement {
   static stylesheets = [stylesheet]
-
-  render() {
-    return template
-  }
 }
