@@ -39,3 +39,17 @@ export function replaceOrInsertStaticProperty (ast, name, value, typeAnnotation 
   })
   return modified
 }
+
+// Make an array unique via some function that returns the unique key for a given array item
+export function uniqBy (array, keyGenerator) {
+  const set = new Set()
+  const result = []
+  for (const item of array) {
+    const key = keyGenerator(item)
+    if (!set.has(key)) {
+      set.add(key)
+      result.push(item)
+    }
+  }
+  return result
+}
