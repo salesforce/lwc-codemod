@@ -9,6 +9,7 @@ import { getAllFilesInDir, isFile } from './fsUtils.js'
 import { jscodeshift as j } from './jscodeshift.js'
 import { parse5 } from './parse5.js'
 import path from 'path'
+import { uniqBy } from './jsUtils.js'
 
 export async function * walkComponents ({ dir, include, exclude }) {
   const scriptFiles = await getAllFilesInDir(dir, include, exclude)
@@ -35,7 +36,7 @@ export async function * walkComponents ({ dir, include, exclude }) {
       htmlImports.push(implicitHtmlFile)
     }
 
-    const templates = await Promise.all(htmlImports.map(async htmlFile => {
+    const rawTemplates = await Promise.all(htmlImports.map(async htmlFile => {
       const source = await fs.readFile(htmlFile, 'utf8')
       const parse5Errors = []
       const ast = parse5.parseFragment(source, { sourceCodeLocationInfo: true, onParseError: (error) => parse5Errors.push(error) })
@@ -51,7 +52,7 @@ export async function * walkComponents ({ dir, include, exclude }) {
         if (await isFile(file)) {
           const source = await fs.readFile(file, 'utf8')
           return {
-            file,
+            file: path.resolve(file),
             source,
             scoped: file === scopedCssFile
           }
@@ -59,7 +60,7 @@ export async function * walkComponents ({ dir, include, exclude }) {
       }))).filter(Boolean)
 
       return {
-        file: htmlFile,
+        file: path.resolve(htmlFile),
         source,
         ast,
         parse5Errors,
@@ -67,13 +68,18 @@ export async function * walkComponents ({ dir, include, exclude }) {
       }
     }))
 
+    // Ensure we return a unique array of templates. Do not return the same template twice, which
+    // can happen if e.g. 1) it's imported by the component JS file plus 2) it's an implicit import,
+    // e.g. component.html implicitly imported by component.js
+    const uniqueTemplates = uniqBy(rawTemplates, template => template.file)
+
     return {
       component: {
-        file: scriptFile,
+        file: path.resolve(scriptFile),
         source,
         ast
       },
-      templates
+      templates: uniqueTemplates
     }
   }
 
