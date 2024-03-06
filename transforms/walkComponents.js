@@ -12,15 +12,15 @@ import path from 'path'
 import { uniqBy } from './jsUtils.js'
 
 const cssFilenameToStylesheet = async filename => {
-    if (await isFile(filename)) {
-      const source = await fs.readFile(filename, 'utf8')
-      return {
-        file: path.resolve(filename),
-        source,
-        scoped: filename.endsWith('.scoped.css')
-      }
+  if (await isFile(filename)) {
+    const source = await fs.readFile(filename, 'utf8')
+    return {
+      file: path.resolve(filename),
+      source,
+      scoped: filename.endsWith('.scoped.css')
     }
-    // return undefined if does not exist
+  }
+  // return undefined if does not exist
 }
 
 export async function * walkComponents ({ dir, include, exclude }) {
