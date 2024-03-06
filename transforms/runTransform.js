@@ -51,11 +51,11 @@ export async function runTransform (dir, transformPath) {
     numErrors++
   }
 
-  for await (const { component, templates, error, file } of walkComponents({ dir, include, exclude })) {
+  for await (const { component, templates, stylesheets, error, file } of walkComponents({ dir, include, exclude })) {
     if (error) {
       onError(error, file)
     } else {
-      const result = await transform({ component, templates })
+      const result = await transform({ component, templates, stylesheets })
       for (const [file, content] of Object.entries(result.overwrite)) {
         await writeFile(file, content)
       }
