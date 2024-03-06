@@ -1,6 +1,6 @@
 {
   "name": "lwc-codemod",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "LWC codemod scripts",
   "license": "BSD-3-Clause",
   "type": "module",
