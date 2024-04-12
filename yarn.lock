@@ -743,26 +743,25 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@lwc/errors@6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-6.0.0.tgz#8070d3e74c7b64acc63b66e64acc7644565b4682"
-  integrity sha512-y3+ITzSmq+XCdpg9u/x4UDdlHtPOWrf/Hem7rD2ST30EyjyzLHggXQdDgdP+hKL0rmgqVe9p6ea6X4DxrUdzQg==
+"@lwc/errors@6.5.1":
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-6.5.1.tgz#a7ae9fd5503e0363f4ab03ebfe023e1a3f7007d5"
+  integrity sha512-lfLdiip2dDK6XhNI10zs4Cr/joEVmG99exZ6Dtz/hBKp08T9h+lo0n6P5NyTcQUL6DkPzdhirV1GWXedmcY64A==
 
-"@lwc/shared@6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-6.0.0.tgz#fd1358708c73d92a0072ac784d441ca55f3a8193"
-  integrity sha512-X59ueOUneW/OSe0WJbhqTAFdUIHQ3CqoVjxlHTLZgG2Tv5jGjKM90g5/ymI3WiMdUO9TtA9ulUaGs46OMejkKA==
+"@lwc/shared@6.5.1":
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-6.5.1.tgz#e322ce392b9e1af9d5ae03192aa081503d6fba55"
+  integrity sha512-xDgYThBNlxiYJG3Z12GhahJ4xo3nbng/X0mfGWfDGAV3l22XtAi7t/JleM/MsQ33Mf/KT684ElJiiKtiSnekaA==
 
 "@lwc/template-compiler@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-6.0.0.tgz#01dbb295a6643290bb52481aaae868db06f7ce6f"
-  integrity sha512-wmKBA9/VxtIAiLKGYk0DLpzZ7am1h+VD+jX48miuyHpwjnySl7UbNHIrneUw/K1GiqqNGJ1opCC4b/1M5vLGrg==
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-6.5.1.tgz#5af0d129b7ed7cbc843987bdf123b484178089b2"
+  integrity sha512-/ROitu+7wnfId7he2+hz2B+tE0j2GJnKN+ALehXsCGXutJWIp2CRBbqAwMr14llyKNo3hOUkouajgQFZKdpYIA==
   dependencies:
-    "@lwc/errors" "6.0.0"
-    "@lwc/shared" "6.0.0"
-    acorn "~8.10.0"
+    "@lwc/errors" "6.5.1"
+    "@lwc/shared" "6.5.1"
+    acorn "~8.11.3"
     astring "~1.8.6"
-    estree-walker "~2.0.2"
     he "~1.2.0"
 
 "@nodelib/fs.scandir@2.1.5":
@@ -903,15 +902,10 @@ acorn-jsx@^5.3.2:
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
   integrity sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==
 
-acorn@^8.9.0:
+acorn@^8.9.0, acorn@~8.11.3:
   version "8.11.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.11.3.tgz#71e0b14e13a4ec160724b38fb7b0f233b1b81d7a"
   integrity sha512-Y9rRfJG5jcKOE0CLisYbojUjIrIEE7AGMzA/Sm4BslANhbS+cDMpgBdcPT91oJ7OuJ9hYJBx59RjbhxVnrF8Xg==
-
-acorn@~8.10.0:
-  version "8.10.0"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.10.0.tgz#8be5b3907a67221a81ab23c7889c4c5526b62ec5"
-  integrity sha512-F0SAmZ8iUtS//m8DmCTA0jlh6TDKkHQyK6xc6V4KDTyZKA9dnvX9/3sRTVQrWm79glUAZbnmmNcdYwUIHWVybw==
 
 ajv@^6.12.4:
   version "6.12.6"
@@ -1771,11 +1765,6 @@ estraverse@^5.1.0, estraverse@^5.2.0, estraverse@^5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/estraverse/-/estraverse-5.3.0.tgz#2eea5290702f26ab8fe5370370ff86c965d21123"
   integrity sha512-MMdARuVEQziNTeJD8DgMqmhwR11BRQ/cBP+pLtYdSTnf3MIO8fFeiINEbX36ZdNlfU/7A9f3gUw49B3oQsvwBA==
-
-estree-walker@~2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
-  integrity sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==
 
 esutils@^2.0.2:
   version "2.0.3"
@@ -2816,9 +2805,9 @@ js-yaml@^4.1.0:
     argparse "^2.0.1"
 
 jscodeshift@^0.15.1:
-  version "0.15.1"
-  resolved "https://registry.yarnpkg.com/jscodeshift/-/jscodeshift-0.15.1.tgz#6c7a9572acdfa4f54098e958f71a05716a4e546b"
-  integrity sha512-hIJfxUy8Rt4HkJn/zZPU9ChKfKZM1342waJ1QC2e2YsPcWhM+3BJ4dcfQCzArTrk1jJeNLB341H+qOcEHRxJZg==
+  version "0.15.2"
+  resolved "https://registry.yarnpkg.com/jscodeshift/-/jscodeshift-0.15.2.tgz#145563860360b4819a558c75c545f39683e5a0be"
+  integrity sha512-FquR7Okgmc4Sd0aEDwqho3rEiKR3BdvuG9jfdHjLJ6JQoWSMpavug3AoIfnfWhxFlf+5pzQh8qjqz0DWFrNQzA==
   dependencies:
     "@babel/core" "^7.23.0"
     "@babel/parser" "^7.23.0"
@@ -3337,21 +3326,21 @@ pkg-dir@^4.2.0:
     find-up "^4.0.0"
 
 postcss-selector-parser@^6.0.15:
-  version "6.0.15"
-  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.15.tgz#11cc2b21eebc0b99ea374ffb9887174855a01535"
-  integrity sha512-rEYkQOMUCEMhsKbK66tbEU9QVIxbhN18YiniAwA7XQYTVBqrBy+P2p5JcdqsHgKM2zWylp8d7J6eszocfds5Sw==
+  version "6.0.16"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.16.tgz#3b88b9f5c5abd989ef4e2fc9ec8eedd34b20fb04"
+  integrity sha512-A0RVJrX+IUkVZbW3ClroRWurercFhieevHB38sr2+l9eUClMqome3LmEmnhlNy+5Mr2EYN6B2Kaw9wYdd+VHiw==
   dependencies:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
 
 postcss@^8.4.33:
-  version "8.4.33"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.33.tgz#1378e859c9f69bf6f638b990a0212f43e2aaa742"
-  integrity sha512-Kkpbhhdjw2qQs2O2DGX+8m5OVqEcbB9HRBvuYM9pgrjEFUg30A9LmXNlTAUj4S9kgtGyrMbTzVjH7E+s5Re2yg==
+  version "8.4.38"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.38.tgz#b387d533baf2054288e337066d81c6bee9db9e0e"
+  integrity sha512-Wglpdk03BSfXkHoQa3b/oulrotAkwrlLDRSOb9D0bN86FdRyE9lppSp33aHNPgBa0JKCoB+drFLZkQoRRYae5A==
   dependencies:
     nanoid "^3.3.7"
     picocolors "^1.0.0"
-    source-map-js "^1.0.2"
+    source-map-js "^1.2.0"
 
 prelude-ls@^1.2.1:
   version "1.2.1"
@@ -3616,10 +3605,10 @@ slash@^3.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
-source-map-js@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
-  integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
+source-map-js@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.2.0.tgz#16b809c162517b5b8c3e7dcd315a2a5c2612b2af"
+  integrity sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==
 
 source-map-support@0.5.13:
   version "0.5.13"
