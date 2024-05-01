@@ -743,23 +743,23 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@lwc/errors@6.5.1":
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-6.5.1.tgz#a7ae9fd5503e0363f4ab03ebfe023e1a3f7007d5"
-  integrity sha512-lfLdiip2dDK6XhNI10zs4Cr/joEVmG99exZ6Dtz/hBKp08T9h+lo0n6P5NyTcQUL6DkPzdhirV1GWXedmcY64A==
+"@lwc/errors@6.6.0":
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-6.6.0.tgz#75755387bf4f84073beb525c01a31eedbd20a5da"
+  integrity sha512-hYRH4lrsKbuPqzczqKrp2rTcvfFOq+OyESXXsd9rUa6WFr7klrwTM/L5SZcEZL9/XhlDLJzbYK66MgGxEOarIA==
 
-"@lwc/shared@6.5.1":
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-6.5.1.tgz#e322ce392b9e1af9d5ae03192aa081503d6fba55"
-  integrity sha512-xDgYThBNlxiYJG3Z12GhahJ4xo3nbng/X0mfGWfDGAV3l22XtAi7t/JleM/MsQ33Mf/KT684ElJiiKtiSnekaA==
+"@lwc/shared@6.6.0":
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-6.6.0.tgz#bc1a5416d2bf5bd393877d2c019d2e4b9e912049"
+  integrity sha512-JsGvmT3BiAoKiIgXXdHWsWc7vGaa9OmngafzXvdizd6fcAfhZ1kHtscf90JFMfH1XYsnO0GstJXDq4QvtA5vPQ==
 
 "@lwc/template-compiler@^6.0.0":
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-6.5.1.tgz#5af0d129b7ed7cbc843987bdf123b484178089b2"
-  integrity sha512-/ROitu+7wnfId7he2+hz2B+tE0j2GJnKN+ALehXsCGXutJWIp2CRBbqAwMr14llyKNo3hOUkouajgQFZKdpYIA==
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-6.6.0.tgz#e9976c7233d37ad505e1757b7a263f20633e21dd"
+  integrity sha512-4YlNSsjRR0O3JFCg73ULqfd47O+uXwBaFuO+NBm6WsNrH4stIQNPUZR99rmD+JdODL+DPEVWVWjJCchgubVQ7w==
   dependencies:
-    "@lwc/errors" "6.5.1"
-    "@lwc/shared" "6.5.1"
+    "@lwc/errors" "6.6.0"
+    "@lwc/shared" "6.6.0"
     acorn "~8.11.3"
     astring "~1.8.6"
     he "~1.2.0"
