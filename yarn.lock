@@ -743,23 +743,23 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@lwc/errors@6.5.1":
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-6.5.1.tgz#a7ae9fd5503e0363f4ab03ebfe023e1a3f7007d5"
-  integrity sha512-lfLdiip2dDK6XhNI10zs4Cr/joEVmG99exZ6Dtz/hBKp08T9h+lo0n6P5NyTcQUL6DkPzdhirV1GWXedmcY64A==
+"@lwc/errors@6.6.5":
+  version "6.6.5"
+  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-6.6.5.tgz#3f2407d6bc69ea3fa370f496dd6284b19ce5a034"
+  integrity sha512-oCfXSfbtlNeCCm088Nsvak5o/v+Dvgjs3++6psUzRuRKqozqFWaf21ibnufeQv425tdeNPUTw/3sv3EvsvoovQ==
 
-"@lwc/shared@6.5.1":
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-6.5.1.tgz#e322ce392b9e1af9d5ae03192aa081503d6fba55"
-  integrity sha512-xDgYThBNlxiYJG3Z12GhahJ4xo3nbng/X0mfGWfDGAV3l22XtAi7t/JleM/MsQ33Mf/KT684ElJiiKtiSnekaA==
+"@lwc/shared@6.6.5":
+  version "6.6.5"
+  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-6.6.5.tgz#714321ab40bffcf3b86928cef247a89937b2555d"
+  integrity sha512-iYoD5ow96gRXRAtySmJt+QFEZIkFWu/5ldD/uKsCjbY77QzmRMzKI3U02jkkaUxPzOJNaEV0OUXiq6vr6t8xHg==
 
 "@lwc/template-compiler@^6.0.0":
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-6.5.1.tgz#5af0d129b7ed7cbc843987bdf123b484178089b2"
-  integrity sha512-/ROitu+7wnfId7he2+hz2B+tE0j2GJnKN+ALehXsCGXutJWIp2CRBbqAwMr14llyKNo3hOUkouajgQFZKdpYIA==
+  version "6.6.5"
+  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-6.6.5.tgz#c5c103bf4ce0244fcd88451ee286daefd03ce83d"
+  integrity sha512-6mD7Fj9+hzGj4rBx+8gc2qC3pGBESvcJ+FibjaPih9Ysw1XKUAksnjAuJUcAph9vrf53KrGL9gTLANCGlgy+jg==
   dependencies:
-    "@lwc/errors" "6.5.1"
-    "@lwc/shared" "6.5.1"
+    "@lwc/errors" "6.6.5"
+    "@lwc/shared" "6.6.5"
     acorn "~8.11.3"
     astring "~1.8.6"
     he "~1.2.0"
@@ -3326,9 +3326,9 @@ pkg-dir@^4.2.0:
     find-up "^4.0.0"
 
 postcss-selector-parser@^6.0.15:
-  version "6.0.16"
-  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.16.tgz#3b88b9f5c5abd989ef4e2fc9ec8eedd34b20fb04"
-  integrity sha512-A0RVJrX+IUkVZbW3ClroRWurercFhieevHB38sr2+l9eUClMqome3LmEmnhlNy+5Mr2EYN6B2Kaw9wYdd+VHiw==
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.1.0.tgz#49694cb4e7c649299fea510a29fa6577104bcf53"
+  integrity sha512-UMz42UD0UY0EApS0ZL9o1XnLhSTtvvvLe5Dc2H2O56fvRZi+KulDyf5ctDhhtYJBGKStV2FL1fy6253cmLgqVQ==
   dependencies:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
