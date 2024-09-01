@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@lwc/template-compiler": "^7.2.0",
-    "jscodeshift": "^0.16.1",
+    "jscodeshift": "^17.0.0",
     "parse5": "^7.1.2",
     "postcss": "^8.4.33",
     "postcss-selector-parser": "^6.0.15"
