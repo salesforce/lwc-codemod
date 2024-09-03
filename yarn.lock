@@ -845,25 +845,25 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@lwc/errors@7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-7.2.0.tgz#fe11601f9e0967dde4472a2fe74a725cabc0fc22"
-  integrity sha512-6V3uWmiSpk/CbG0zsfa4sSNJORu16ty+ZbpTANFc5SyI04OC+HwTOhzdUfHfpTDwrx+NBXe3yxjbCuFiKaqKcQ==
+"@lwc/errors@7.2.3":
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-7.2.3.tgz#607416de1ca783f2f399ffc18471b0f819bb37fc"
+  integrity sha512-ApUrfG6VbEcbpOGTBzfcY9Wq1hh4zaPTrEYW59R7URQ8RS6YRDwsL0KXYJA605E6f61eMkQhRYvP6MbnH9MlOg==
 
-"@lwc/shared@7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-7.2.0.tgz#ba091082735429dc486374b0d04355a32dccec9a"
-  integrity sha512-4Uu2ugT4EscsmcUpwEtaN9LGbttOgVe8pyL36ARnjNkh6JNYWunUrIGG/fl8d/OLOupxn5fwYGLJe3F6LN9bCQ==
+"@lwc/shared@7.2.3":
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-7.2.3.tgz#9cb405263c6411184b33a4175a6d99b319e6cfd3"
+  integrity sha512-LJFZbrLWwDDdh9eUW6yt+0iyT+rXVu8TRmCvF+RdBKtzZFQ6aZcfw+avIfuzEkqHy3HXPRJi/Q7s6sZ5yMZqyg==
 
 "@lwc/template-compiler@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-7.2.0.tgz#309857a3e0615c131eadbeafcb9db5704d8ca220"
-  integrity sha512-eXIUZoag1jWZqoF8ypNhD9jHxWd7BUn39lDy5UD8GDzqOUDc7Wap+0GIK6Dz6JWH7BeYdtb2t9rquCBneXKryQ==
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-7.2.3.tgz#d59f38d3420914ab51e93fed3384897cc63c4832"
+  integrity sha512-yoebVc9EhQg8KsYMUPcldCzNR72kfcBGc9ZXv/gprhQBTpmKM4YWX+ftRFPpdv86IU15XiFsZbX2tiTvt7P+ZQ==
   dependencies:
-    "@lwc/errors" "7.2.0"
-    "@lwc/shared" "7.2.0"
+    "@lwc/errors" "7.2.3"
+    "@lwc/shared" "7.2.3"
     acorn "~8.12.1"
-    astring "~1.8.6"
+    astring "~1.9.0"
     he "~1.2.0"
 
 "@nodelib/fs.scandir@2.1.5":
@@ -1151,10 +1151,10 @@ ast-types@^0.16.1:
   dependencies:
     tslib "^2.0.1"
 
-astring@~1.8.6:
-  version "1.8.6"
-  resolved "https://registry.yarnpkg.com/astring/-/astring-1.8.6.tgz#2c9c157cf1739d67561c56ba896e6948f6b93731"
-  integrity sha512-ISvCdHdlTDlH5IpxQJIex7BWBywFWgjJSVdwst+/iQCoEYnyOaQ95+X1JGshuBjGp6nxKUy1jMgE3zPqN7fQdg==
+astring@~1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/astring/-/astring-1.9.0.tgz#cc73e6062a7eb03e7d19c22d8b0b3451fd9bfeef"
+  integrity sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==
 
 asynciterator.prototype@^1.0.0:
   version "1.0.0"
@@ -3394,17 +3394,17 @@ pkg-dir@^4.2.0:
     find-up "^4.0.0"
 
 postcss-selector-parser@^6.0.15:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.1.1.tgz#5be94b277b8955904476a2400260002ce6c56e38"
-  integrity sha512-b4dlw/9V8A71rLIDsSwVmak9z2DuBUB7CA1/wSdelNEzqsjoSPeADTWNO09lpH49Diy3/JIZ2bSPB1dI3LJCHg==
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.1.2.tgz#27ecb41fb0e3b6ba7a1ec84fff347f734c7929de"
+  integrity sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==
   dependencies:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
 
 postcss@^8.4.33:
-  version "8.4.40"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.40.tgz#eb81f2a4dd7668ed869a6db25999e02e9ad909d8"
-  integrity sha512-YF2kKIUzAofPMpfH6hOi2cGnv/HrUlfucspc7pDyvv7kGdqXrfj8SCl/t8owkEgKEuu8ZcRjSOxFxVLqwChZ2Q==
+  version "8.4.42"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.42.tgz#0954e9b075f961fb2790d6b807b1f24e7334dbea"
+  integrity sha512-hywKUQB9Ra4dR1mGhldy5Aj1X3MWDSIA1cEi+Uy0CjheLvP6Ual5RlwMCh8i/X121yEDLDIKBsrCQ8ba3FDMfQ==
   dependencies:
     nanoid "^3.3.7"
     picocolors "^1.0.1"
