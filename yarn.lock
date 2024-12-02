@@ -845,24 +845,24 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@lwc/errors@7.2.3":
-  version "7.2.3"
-  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-7.2.3.tgz#607416de1ca783f2f399ffc18471b0f819bb37fc"
-  integrity sha512-ApUrfG6VbEcbpOGTBzfcY9Wq1hh4zaPTrEYW59R7URQ8RS6YRDwsL0KXYJA605E6f61eMkQhRYvP6MbnH9MlOg==
+"@lwc/errors@8.11.0":
+  version "8.11.0"
+  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-8.11.0.tgz#bad810d6780f0af36e9c3db72f24cba4785c004e"
+  integrity sha512-bduUz4Gqzl6xofndPtr6eJ2fxehsWJ5w9Xc/xZ6oqpCJbc95o6hbzpt4BKKQZ7bupS3GwHFSRBgtsKLJA9R5hg==
 
-"@lwc/shared@7.2.3":
-  version "7.2.3"
-  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-7.2.3.tgz#9cb405263c6411184b33a4175a6d99b319e6cfd3"
-  integrity sha512-LJFZbrLWwDDdh9eUW6yt+0iyT+rXVu8TRmCvF+RdBKtzZFQ6aZcfw+avIfuzEkqHy3HXPRJi/Q7s6sZ5yMZqyg==
+"@lwc/shared@8.11.0":
+  version "8.11.0"
+  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-8.11.0.tgz#8318d3bde59eed8884ad413dfdc185e466269b7b"
+  integrity sha512-BfPhpXmGqpw2SXYNk1Dt+FFD9hfi9TJ/xWCIVHHF3OUnLc3sgtKjHlF6zcgD0fLL0d3mRegjP8jeg/LP3Zv8Mg==
 
-"@lwc/template-compiler@^7.2.0":
-  version "7.2.3"
-  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-7.2.3.tgz#d59f38d3420914ab51e93fed3384897cc63c4832"
-  integrity sha512-yoebVc9EhQg8KsYMUPcldCzNR72kfcBGc9ZXv/gprhQBTpmKM4YWX+ftRFPpdv86IU15XiFsZbX2tiTvt7P+ZQ==
+"@lwc/template-compiler@^8.11.0":
+  version "8.11.0"
+  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-8.11.0.tgz#e5d1f054e44598883ce4e4bd2b62db0b87a3dce7"
+  integrity sha512-NU1MZimOcDsET/hvhzzaXUvjcU66phg+/LCYNVCPcdism2zHCTZI29Z4L0lIY8lU+vob/DUgVxoBKozk+UZfQA==
   dependencies:
-    "@lwc/errors" "7.2.3"
-    "@lwc/shared" "7.2.3"
-    acorn "~8.12.1"
+    "@lwc/errors" "8.11.0"
+    "@lwc/shared" "8.11.0"
+    acorn "~8.14.0"
     astring "~1.9.0"
     he "~1.2.0"
 
@@ -1004,10 +1004,10 @@ acorn-jsx@^5.3.2:
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
   integrity sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==
 
-acorn@^8.9.0, acorn@~8.12.1:
-  version "8.12.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.12.1.tgz#71616bdccbe25e27a54439e0046e89ca76df2248"
-  integrity sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==
+acorn@^8.9.0, acorn@~8.14.0:
+  version "8.14.0"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.14.0.tgz#063e2c70cac5fb4f6467f0b11152e04c682795b0"
+  integrity sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA==
 
 ajv@^6.12.4:
   version "6.12.6"
