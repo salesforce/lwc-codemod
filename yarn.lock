@@ -845,23 +845,23 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@lwc/errors@8.12.2":
-  version "8.12.2"
-  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-8.12.2.tgz#2e8cf9cb86c74c4fec714093f24627a7f232c988"
-  integrity sha512-+b7X03dxoB/HQqBhkjixcrdkupl++To9L4HW6QRqJaAEL6yjeYMhV9fnl4ccvyehhHh7p/ixvGOGPb2VLobPIw==
+"@lwc/errors@8.14.0":
+  version "8.14.0"
+  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-8.14.0.tgz#d3b21ec1af95c89aa321ad3020bad1219ad10438"
+  integrity sha512-52L3le/N4qJQv12BrlaEAJ2Oz2a3HnOq6TINDwoFj0FXK4TAJP3nO208TrMDMu6E//SrN2fmDGjmHVPl0+8uvw==
 
-"@lwc/shared@8.12.2":
-  version "8.12.2"
-  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-8.12.2.tgz#9c5800e7d557f8d97b912265ddc73a467faa1d77"
-  integrity sha512-pwsMfXJr5toL/Hu17EaSMIVwqKZQaz7D2Iuqz4LtZBDnGNi1nu6T7vti1ICAYJ6lNeQbIXyOoPetAtjJh11sWA==
+"@lwc/shared@8.14.0":
+  version "8.14.0"
+  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-8.14.0.tgz#0101cadaa78f48833b1c2e7fbbf5475596f91812"
+  integrity sha512-qzPcI9rUbemgRr+TDUHFL//mSZ9lx24aFJppAMVUJHRWWqJ2k7dwftWhoIxgAFSQ5H6yDy2vqM9eGcahpspyLA==
 
 "@lwc/template-compiler@^8.11.0":
-  version "8.12.2"
-  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-8.12.2.tgz#8306e7db97f318729ed183a8b079ebce59739005"
-  integrity sha512-noNQ8JdhnU+elfkJDNptjp3reXVwRDb7hg3K0XnkVduPCZL30VXf9xejr0m03h4PDDyzrJfUX6/O+oGYB587ag==
+  version "8.14.0"
+  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-8.14.0.tgz#d7247887b4e89c9e169dd24bba7bc1260da99162"
+  integrity sha512-MQVKperln70VNOc1uk7mFCia0rCJaJ7vRqK+Pw9mMl5fzHqHs50OQv+E82/0DRpetg2YO3ZY0KMJVxdxwuQO4g==
   dependencies:
-    "@lwc/errors" "8.12.2"
-    "@lwc/shared" "8.12.2"
+    "@lwc/errors" "8.14.0"
+    "@lwc/shared" "8.14.0"
     acorn "~8.14.0"
     astring "~1.9.0"
     he "~1.2.0"
@@ -3147,9 +3147,9 @@ js-yaml@^4.1.0:
     argparse "^2.0.1"
 
 jscodeshift@^17.0.0:
-  version "17.1.1"
-  resolved "https://registry.yarnpkg.com/jscodeshift/-/jscodeshift-17.1.1.tgz#03d81c8d32bd7100c2f092cf2a38bd9ae88379c6"
-  integrity sha512-4vq5B1sD37aa9qed3zWq2XQPun5XjxebIv+Folr57lt8B4HLGDHEz1UG7pfcxzSaelzPbcY7yZSs033/S0i6wQ==
+  version "17.1.2"
+  resolved "https://registry.yarnpkg.com/jscodeshift/-/jscodeshift-17.1.2.tgz#d77e9d3d08fdbb1548818bc22f653aba7fc21a25"
+  integrity sha512-uime4vFOiZ1o3ICT4Sm/AbItHEVw2oCxQ3a0egYVy3JMMOctxe07H3SKL1v175YqjMt27jn1N+3+Bj9SKDNgdQ==
   dependencies:
     "@babel/core" "^7.24.7"
     "@babel/parser" "^7.24.7"
@@ -3378,7 +3378,7 @@ ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-nanoid@^3.3.7:
+nanoid@^3.3.8:
   version "3.3.8"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.8.tgz#b1be3030bee36aaff18bacb375e5cce521684baf"
   integrity sha512-WNLf5Sd8oZxOm+TzppcYk8gVOgP+l58xNy58D0nbUnOxOWRWvlcCV4kUF7ltmI6PsrLl/BgKEyS4mqsGChFN0w==
@@ -3667,19 +3667,19 @@ possible-typed-array-names@^1.0.0:
   integrity sha512-d7Uw+eZoloe0EHDIYoe+bQ5WXnGMOpmiZFTuMWCwpjzzkL2nTjcKiAk4hh8TjnGye2TwWOk3UXucZ+3rbmBa8Q==
 
 postcss-selector-parser@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-7.0.0.tgz#41bd8b56f177c093ca49435f65731befe25d6b9c"
-  integrity sha512-9RbEr1Y7FFfptd/1eEdntyjMwLeghW1bHX9GWjXo19vx4ytPQhANltvVxDggzJl7mnWM+dX28kb6cyS/4iQjlQ==
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-7.1.0.tgz#4d6af97eba65d73bc4d84bcb343e865d7dd16262"
+  integrity sha512-8sLjZwK0R+JlxlYcTuVnyT2v+htpdrjDOKuMcOVdYjt52Lh8hWRYpxBPoKx/Zg+bcjc3wx6fmQevMmUztS/ccA==
   dependencies:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
 
 postcss@^8.4.33:
-  version "8.4.49"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.49.tgz#4ea479048ab059ab3ae61d082190fabfd994fe19"
-  integrity sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==
+  version "8.5.3"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.5.3.tgz#1463b6f1c7fb16fe258736cba29a2de35237eafb"
+  integrity sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==
   dependencies:
-    nanoid "^3.3.7"
+    nanoid "^3.3.8"
     picocolors "^1.1.1"
     source-map-js "^1.2.1"
 
